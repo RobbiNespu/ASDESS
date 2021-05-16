@@ -61,5 +61,11 @@
             </plugin>
         </plugins>
     </build>
-
+    <developers>
+        <developer>
+            <id>robbinespu</id>
+            <email>robbinespu@gmail.com</email>
+            <name>Robbi Nespu</name>
+        </developer>
+    </developers>
 </project>
