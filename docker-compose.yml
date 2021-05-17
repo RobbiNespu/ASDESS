@@ -3,7 +3,7 @@ services:
   db_mysql:
     image: mysql
     container_name: mysql
-    restart: always
+    restart: on-failure
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=springboot_asdess
@@ -13,9 +13,8 @@ services:
       - 3306:3306
 
   app-asdess:
-    #build: .
     image: spring-boot-asdess
-    restart: on-failure
+    #restart: on-failure
     depends_on:
       - db_mysql
-    #command: sh -c './wait-for db_mysql:3306 -- npm start'
+    command: sh -c './wait-for db_mysql:3306 -- npm start'

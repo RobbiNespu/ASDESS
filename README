@@ -1,4 +1,9 @@
 mvn clean
 mvn package
+docker build -t spring-boot-asdess .
 docker-compose build .
 docker run -t spring-boot-asdess:latest
+docker-compose build
+docker-compose up
+
+# mvn package && docker build -t spring-boot-asdess . && docker-compose build && docker-compose up

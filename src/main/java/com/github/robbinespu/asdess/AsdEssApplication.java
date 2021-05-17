@@ -1,6 +1,6 @@
 package com.github.robbinespu.asdess;
 
-import com.github.robbinespu.asdess.utils.Menus;
+import com.github.robbinespu.asdess.utils.MenusUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,25 +13,24 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class AsdEssApplication implements CommandLineRunner {
 
-    private static Logger log = LoggerFactory
-            .getLogger(AsdEssApplication.class);
+    private static Logger log = LoggerFactory.getLogger(AsdEssApplication.class);
 
     @Autowired
-      Menus menus;
+    MenusUtil menusUtil;
 
     public static void main(String[] args) {
         log.info("STARTING THE APPLICATION");
-        SpringApplication.run(AsdEssApplication.class, args);
-        //SpringApplication app = new SpringApplication(AsdEssApplication.class);
-        //app.setBannerMode(Banner.Mode.OFF);
-        //app.run(AsdEssApplication.class, args).close();
+        //SpringApplication.run(AsdEssApplication.class, args);
+        SpringApplication application = new SpringApplication(AsdEssApplication.class);
+        application.setBannerMode(Banner.Mode.OFF);
+        application.run(args);
         log.info("APPLICATION FINISHED");
     }
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Running Spring Boot Application");
-        menus.commandMethod();
+        menusUtil.commandMethod();
 
     }
 
