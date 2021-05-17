@@ -44,4 +44,10 @@ public class UserRepo {
         user.setName(inputFromTerminal);
         asdessApplicationDAO.save(user);
     }
+
+    public static void editItem(String inputFromTerminal, String editedItem) throws BusinessIntegrityException{
+        User user = asdessApplicationDAO.findByName(inputFromTerminal);
+        user.setName(editedItem);
+        asdessApplicationDAO.save(user);
+    }
 }

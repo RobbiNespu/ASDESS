@@ -34,6 +34,16 @@ public class MenuUtils {
                 System.out.println("...Please Enter Item Name...\n");
                 userService.addItemtoDatabase(inputFromTerminal());
                 continue;
+            } else if (input.equalsIgnoreCase("EDIT")) {
+                if(userService.checkoutListSize().equals(false)){
+                    continue;
+                }else{
+                    userService.checkOutItemList();
+                    System.out.println("...Please Enter Item Name...\n");
+                    userService.editItemFromDatabase(inputFromTerminal());
+
+                    continue;
+                }
             }else{
                 System.out.println("...Invalid command. Retry...\n");
                 commandMethod();

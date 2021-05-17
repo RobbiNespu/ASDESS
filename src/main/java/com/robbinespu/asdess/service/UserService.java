@@ -33,4 +33,15 @@ public class UserService {
             System.out.println("..." + inputFromTerminal + " is added...\n");
         }else System.out.println("..." + inputFromTerminal + " is already added to database.Retry...\n");
     }
+
+    public void editItemFromDatabase(String inputFromTerminal)throws BusinessIntegrityException{
+        if(UserRepo.isThisItemExist(inputFromTerminal)){
+            System.out.println("...Please Enter New Item Name For Editing...\n");
+            String editedItem= menuUtils.inputFromTerminal();
+            if(!UserRepo.isThisItemExist(editedItem)){
+                UserRepo.editItem(inputFromTerminal, editedItem);
+                System.out.println("..." +inputFromTerminal + " is edited as " + editedItem + "...\n");
+            }else System.out.println("..." + editedItem + " is already existed in database...\n");
+        }else System.out.println("..." + inputFromTerminal + " didn't found in database...\n");
+    }
 }
