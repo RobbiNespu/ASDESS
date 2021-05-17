@@ -19,7 +19,7 @@ jobs:
       - name: Publish package
         run: mvn $MAVEN_CLI_OPTS clean deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
       - name: Copying target jar
         run: |
