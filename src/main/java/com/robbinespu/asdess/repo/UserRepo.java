@@ -50,4 +50,8 @@ public class UserRepo {
         user.setName(editedItem);
         asdessApplicationDAO.save(user);
     }
+
+    public static void deleteItem(String inputFromTerminal) throws BusinessIntegrityException{
+        asdessApplicationDAO.delete(asdessApplicationDAO.findByName(inputFromTerminal));
+    }
 }

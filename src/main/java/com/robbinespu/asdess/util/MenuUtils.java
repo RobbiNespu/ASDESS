@@ -35,13 +35,29 @@ public class MenuUtils {
                 userService.addItemtoDatabase(inputFromTerminal());
                 continue;
             } else if (input.equalsIgnoreCase("EDIT")) {
+                if (userService.checkoutListSize().equals(false)) {
+                    continue;
+                } else {
+                    userService.checkOutItemList();
+                    System.out.println("...Please Enter Item Name...\n");
+                    userService.editItemFromDatabase(inputFromTerminal());
+
+                    continue;
+                }
+            } else if (input.equalsIgnoreCase("DELETE")) {
                 if(userService.checkoutListSize().equals(false)){
                     continue;
                 }else{
                     userService.checkOutItemList();
                     System.out.println("...Please Enter Item Name...\n");
-                    userService.editItemFromDatabase(inputFromTerminal());
-
+                    userService.deleteItemFromDatabase(inputFromTerminal());
+                    continue;
+                }
+            } else if (input.equalsIgnoreCase("CHECKOUT")) {
+                if(userService.checkoutListSize().equals(false)){
+                    continue;
+                }else{
+                    userService.checkOutItemList();
                     continue;
                 }
             }else{

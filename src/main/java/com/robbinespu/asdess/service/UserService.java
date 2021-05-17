@@ -44,4 +44,11 @@ public class UserService {
             }else System.out.println("..." + editedItem + " is already existed in database...\n");
         }else System.out.println("..." + inputFromTerminal + " didn't found in database...\n");
     }
+
+    public void deleteItemFromDatabase (String inputFromTerminal) throws BusinessIntegrityException{
+        if (UserRepo.isThisItemExist(inputFromTerminal)){
+            UserRepo.deleteItem(inputFromTerminal);
+            System.out.println(inputFromTerminal + " is deleted...\n");
+        }else System.out.println("..." + inputFromTerminal + " didn't found in database, Retry...\n");
+    }
 }
