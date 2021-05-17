@@ -60,6 +60,11 @@ public class MenuUtils {
                     userService.checkOutItemList();
                     continue;
                 }
+            } else if(input.equalsIgnoreCase("EXIT")){
+                userService.checkOutItemList();
+                userService.checkoutListSize();
+                System.out.println("...Exit from Program...\n");
+                System.exit(0);
             }else{
                 System.out.println("...Invalid command. Retry...\n");
                 commandMethod();
