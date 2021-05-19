@@ -13,42 +13,43 @@ public class UserService {
     @Autowired
     MenuUtils menuUtils;
 
-    public void checkOutItemList() throws BusinessIntegrityException{
+    public void checkOutItemList() throws BusinessIntegrityException {
         System.out.println("...List...");
         UserRepo.checkOutItem();
         System.out.println("\n");
     }
 
     public Boolean checkoutListSize() throws BusinessIntegrityException {
-        if(UserRepo.listSize().equals(false)){
+        if (UserRepo.listSize().equals(false)) {
             System.out.println("...There is any item in database...\n");
             return false;
-        }return true;
+        }
+        return true;
     }
 
 
-    public void addItemtoDatabase (String inputFromTerminal) throws BusinessIntegrityException{
-        if (!UserRepo.isThisItemExist(inputFromTerminal)){
+    public void addItemtoDatabase(String inputFromTerminal) throws BusinessIntegrityException {
+        if (!UserRepo.isThisItemExist(inputFromTerminal)) {
             UserRepo.addItem(inputFromTerminal);
             System.out.println("..." + inputFromTerminal + " is added...\n");
-        }else System.out.println("..." + inputFromTerminal + " is already added to database.Retry...\n");
+        } else System.out.println("..." + inputFromTerminal + " is already added to database.Retry...\n");
     }
 
-    public void editItemFromDatabase(String inputFromTerminal)throws BusinessIntegrityException{
-        if(UserRepo.isThisItemExist(inputFromTerminal)){
+    public void editItemFromDatabase(String inputFromTerminal) throws BusinessIntegrityException {
+        if (UserRepo.isThisItemExist(inputFromTerminal)) {
             System.out.println("...Please Enter New Item Name For Editing...\n");
-            String editedItem= menuUtils.inputFromTerminal();
-            if(!UserRepo.isThisItemExist(editedItem)){
+            String editedItem = menuUtils.inputFromTerminal();
+            if (!UserRepo.isThisItemExist(editedItem)) {
                 UserRepo.editItem(inputFromTerminal, editedItem);
-                System.out.println("..." +inputFromTerminal + " is edited as " + editedItem + "...\n");
-            }else System.out.println("..." + editedItem + " is already existed in database...\n");
-        }else System.out.println("..." + inputFromTerminal + " didn't found in database...\n");
+                System.out.println("..." + inputFromTerminal + " is edited as " + editedItem + "...\n");
+            } else System.out.println("..." + editedItem + " is already existed in database...\n");
+        } else System.out.println("..." + inputFromTerminal + " didn't found in database...\n");
     }
 
-    public void deleteItemFromDatabase (String inputFromTerminal) throws BusinessIntegrityException{
-        if (UserRepo.isThisItemExist(inputFromTerminal)){
+    public void deleteItemFromDatabase(String inputFromTerminal) throws BusinessIntegrityException {
+        if (UserRepo.isThisItemExist(inputFromTerminal)) {
             UserRepo.deleteItem(inputFromTerminal);
             System.out.println(inputFromTerminal + " is deleted...\n");
-        }else System.out.println("..." + inputFromTerminal + " didn't found in database, Retry...\n");
+        } else System.out.println("..." + inputFromTerminal + " didn't found in database, Retry...\n");
     }
 }

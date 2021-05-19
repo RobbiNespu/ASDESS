@@ -3,7 +3,6 @@ package com.robbinespu.asdess;
 import com.robbinespu.asdess.exception.ExitException;
 import com.robbinespu.asdess.service.HelloWorldService;
 import com.robbinespu.asdess.util.MenuUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

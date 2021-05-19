@@ -16,7 +16,7 @@ public class MenuUtils {
 
 
     public void commandMethod() throws BusinessIntegrityException {
-        boolean loop=true;
+        boolean loop = true;
         while (loop) {
             System.out.println("Please Enter Command Below: \n"
                     + "...ADD      => Add any item to database...\n"
@@ -45,27 +45,27 @@ public class MenuUtils {
                     continue;
                 }
             } else if (input.equalsIgnoreCase("DELETE")) {
-                if(userService.checkoutListSize().equals(false)){
+                if (userService.checkoutListSize().equals(false)) {
                     continue;
-                }else{
+                } else {
                     userService.checkOutItemList();
                     System.out.println("...Please Enter Item Name...\n");
                     userService.deleteItemFromDatabase(inputFromTerminal());
                     continue;
                 }
             } else if (input.equalsIgnoreCase("CHECKOUT")) {
-                if(userService.checkoutListSize().equals(false)){
+                if (userService.checkoutListSize().equals(false)) {
                     continue;
-                }else{
+                } else {
                     userService.checkOutItemList();
                     continue;
                 }
-            } else if(input.equalsIgnoreCase("EXIT")){
+            } else if (input.equalsIgnoreCase("EXIT")) {
                 userService.checkOutItemList();
                 userService.checkoutListSize();
                 System.out.println("...Exit from Program...\n");
                 System.exit(0);
-            }else{
+            } else {
                 System.out.println("...Invalid command. Retry...\n");
                 commandMethod();
             }
