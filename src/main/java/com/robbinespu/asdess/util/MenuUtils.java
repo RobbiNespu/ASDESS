@@ -49,7 +49,7 @@ public class MenuUtils {
                     continue;
                 } else {
                     userService.checkOutItemList();
-                    System.out.println("...Please Enter Item Name...\n");
+                    System.out.println("...Please Enter Item Name..amonte/jexer/-/raw/master/screenshots/snake_swing.png?raw=true.\n");
                     userService.deleteItemFromDatabase(inputFromTerminal());
                     continue;
                 }
